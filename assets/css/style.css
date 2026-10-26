@@ -86,7 +86,10 @@ html, body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+}
+
+body {
+  overflow-x: clip;
 }
 
 /* Scrollbar customization */
@@ -302,8 +305,11 @@ html, body {
 
 /* Right Column: Sticky Compact Live Preview & Code */
 .sticky-preview-column {
+  position: -webkit-sticky;
   position: sticky;
   top: calc(var(--header-height) + 16px);
+  align-self: start;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 16px;
