@@ -280,22 +280,22 @@ html, body {
   }
 }
 
-/* Left Column: Layers and Settings Grid */
+/* Left Column: 1. Shadow Layers -> 2. Settings -> 3. Presets */
 .left-workbench-column {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   min-width: 0;
 }
 
-.layers-and-settings-grid {
+.settings-controls-grid {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
 }
 
-@media (max-width: 860px) {
-  .layers-and-settings-grid {
+@media (max-width: 680px) {
+  .settings-controls-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -97,75 +97,74 @@
     </div>
   </header>
 
-  <!-- Main Application Workspace: 2-Column Balanced Architecture -->
+  <!-- Main Application Workspace: Exactly 2 Panels -->
   <main class="app-main">
 
-    <!-- LEFT COLUMN: Shadow Layers & All Presets (বামে থাকবে) -->
+    <!-- PANEL 1 (LEFT COLUMN): 1. Shadow Layers -> 2. Settings -> 3. Shadow Presets -->
     <div class="left-workbench-column">
       
-      <!-- Top Section: Shadow Layers Stack + Active Layer Settings (Side by Side Grid) -->
-      <div class="layers-and-settings-grid">
-        
-        <!-- Panel 1: Multi-layer Stack Manager -->
-        <section class="panel">
-          <div class="panel-header">
-            <div class="panel-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                <polyline points="2 17 12 22 22 17"/>
-                <polyline points="2 12 12 17 22 12"/>
-              </svg>
-              <span>Shadow Layers (<span id="layerCountBadge">2</span>)</span>
-            </div>
-            <button id="addLayerBtn" class="btn btn-sm btn-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              <span>Add Layer</span>
-            </button>
+      <!-- 1. Shadow Layers Panel -->
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            <span>Shadow Layers (<span id="layerCountBadge">2</span>)</span>
           </div>
-          <div class="panel-body" style="padding: 12px;">
-            <!-- Dynamically populated shadow layers -->
-            <div id="layersList" class="layers-container"></div>
+          <button id="addLayerBtn" class="btn btn-sm btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Add Layer</span>
+          </button>
+        </div>
+        <div class="panel-body" style="padding: 12px;">
+          <!-- Dynamically populated shadow layers -->
+          <div id="layersList" class="layers-container"></div>
+        </div>
+      </section>
+
+      <!-- 2. Settings Panel (Active Layer Parameters) -->
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <span id="activeLayerTitle">Layer #1 Settings</span>
           </div>
-        </section>
+        </div>
 
-        <!-- Panel 2: Active Layer Parameters -->
-        <section class="panel">
-          <div class="panel-header">
-            <div class="panel-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-              <span id="activeLayerTitle">Layer #1 Settings</span>
+        <div class="panel-body">
+          <!-- Inset Switch -->
+          <div class="switch-wrapper">
+            <div class="switch-label">
+              <span class="switch-title">Inset Shadow</span>
+              <span class="switch-desc">Cast inside element bounds</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="insetToggle">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <!-- 2D Light Source Joystick Controller -->
+          <div class="joystick-container">
+            <div class="joystick-header">
+              <span class="joystick-title">2D Light Direction Pad</span>
+              <span id="joystickCoords" class="joystick-coords">X: 0px | Y: 14px</span>
+            </div>
+            <div id="joystickPad" class="joystick-pad" title="Drag to adjust X and Y shadow offsets visually">
+              <div class="joystick-axes"></div>
+              <div class="joystick-reticle"></div>
+              <div id="joystickHandle" class="joystick-handle"></div>
             </div>
           </div>
 
-          <div class="panel-body">
-            <!-- Inset Switch -->
-            <div class="switch-wrapper">
-              <div class="switch-label">
-                <span class="switch-title">Inset Shadow</span>
-                <span class="switch-desc">Cast inside element bounds</span>
-              </div>
-              <label class="switch">
-                <input type="checkbox" id="insetToggle">
-                <span class="slider-switch"></span>
-              </label>
-            </div>
-
-            <!-- 2D Light Source Joystick Controller -->
-            <div class="joystick-container">
-              <div class="joystick-header">
-                <span class="joystick-title">2D Light Direction Pad</span>
-                <span id="joystickCoords" class="joystick-coords">X: 0px | Y: 14px</span>
-              </div>
-              <div id="joystickPad" class="joystick-pad" title="Drag to adjust X and Y shadow offsets visually">
-                <div class="joystick-axes"></div>
-                <div class="joystick-reticle"></div>
-                <div id="joystickHandle" class="joystick-handle"></div>
-              </div>
-            </div>
-
+          <!-- Synchronized Sliders & Numeric Inputs in Compact 2-Column Grid -->
+          <div class="settings-controls-grid">
             <!-- Offset X -->
             <div class="control-group">
               <div class="control-label-row">
@@ -231,13 +230,12 @@
                 <input type="number" id="opacityNum" class="num-input" min="0" max="100" value="35">
               </div>
             </div>
-
           </div>
-        </section>
 
-      </div>
+        </div>
+      </section>
 
-      <!-- Bottom Section: All Shadow Presets (সব প্রিসেট একসাথে দেখাবে, কোন স্ক্রলবার থাকবে না) -->
+      <!-- 3. Shadow Presets Panel (সব প্রিসেট একসাথে দেখাবে, কোন স্ক্রলবার ছাড়া) -->
       <section class="presets-panel full-showcase">
         <div class="panel-header">
           <div class="panel-title">
@@ -268,7 +266,7 @@
 
     </div>
 
-    <!-- RIGHT COLUMN: Sticky Compact Live Preview & Code Output (প্রিভিউ স্টিকি ও ছোট থাকবে) -->
+    <!-- PANEL 2 (RIGHT COLUMN): Sticky Compact Live Preview & Code (স্টিকি থাকবে যাতে বামে স্ক্রল করলে প্রিভিউ হারিয়ে না যায়) -->
     <div class="sticky-preview-column">
       
       <!-- Compact Stage Customization Toolbar -->

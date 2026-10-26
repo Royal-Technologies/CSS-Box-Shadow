@@ -1190,11 +1190,18 @@
     }, 2800);
   }
 
-  // --- Keyboard Shortcuts ---
+  // --- Keyboard Shortcuts & Window Resize ---
   window.addEventListener('keydown', (e) => {
     // Ctrl+C / Cmd+C when not inside an input copies shadow code
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       copyToClipboard(getRawCode(), 'Copied active shadow code! ✨');
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    const layer = getSelectedLayer();
+    if (layer) {
+      updateJoystickPosition(layer.x, layer.y);
     }
   });
 
