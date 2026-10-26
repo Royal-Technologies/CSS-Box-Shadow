@@ -258,7 +258,15 @@ html, body {
   display: grid;
   grid-template-columns: 380px 1fr 400px;
   gap: 24px;
+  align-items: start;
   min-height: calc(100vh - var(--header-height));
+}
+
+@media (min-width: 1025px) {
+  .preview-column {
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+  }
 }
 
 @media (max-width: 1400px) {
@@ -267,6 +275,9 @@ html, body {
   }
   .export-panel-column {
     grid-column: 1 / -1;
+  }
+  .preview-column {
+    position: static;
   }
 }
 
@@ -1046,15 +1057,14 @@ input:checked + .slider-switch::before {
 
 .presets-filter-bar {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
-  padding: 10px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 .preset-chip {
-  padding: 4px 10px;
+  padding: 5px 12px;
   font-size: 0.75rem;
   font-weight: 500;
   border-radius: var(--radius-full);
@@ -1071,13 +1081,14 @@ input:checked + .slider-switch::before {
   border-color: var(--accent-primary);
 }
 
+/* Full open grid - No internal scrollbar, displays all presets clearly */
 .presets-grid {
   padding: 16px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
-  max-height: 480px;
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 @media (max-width: 480px) {
