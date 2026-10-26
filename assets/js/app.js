@@ -963,50 +963,49 @@
   function applyBoxShape() {
     switch (state.boxShape) {
       case 'circle':
-        els.targetBox.style.width = '200px';
-        els.targetBox.style.height = '200px';
+        els.targetBox.style.width = '120px';
+        els.targetBox.style.height = '120px';
         els.targetBox.style.borderRadius = '50%';
         els.targetBox.innerHTML = `
-          <div class="box-avatar">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="box-avatar" style="width: 40px; height: 40px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
         `;
         break;
 
       case 'button':
-        els.targetBox.style.width = '220px';
-        els.targetBox.style.height = '64px';
+        els.targetBox.style.width = '150px';
+        els.targetBox.style.height = '44px';
         els.targetBox.style.borderRadius = '9999px';
         els.targetBox.innerHTML = `
-          <span style="font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            Interactive Action
+          <span style="font-weight: 600; font-size: 0.82rem; display: flex; align-items: center; gap: 6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Interactive Button
           </span>
         `;
         break;
 
       case 'box':
-        els.targetBox.style.width = '220px';
-        els.targetBox.style.height = '220px';
+        els.targetBox.style.width = '140px';
+        els.targetBox.style.height = '130px';
         els.targetBox.style.borderRadius = `${state.borderRadius}px`;
         els.targetBox.innerHTML = `
-          <div style="font-weight: 700; font-size: 1.1rem; opacity: 0.7;">Box Element</div>
+          <div style="font-weight: 600; font-size: 0.9rem; opacity: 0.8;">Box Target</div>
         `;
         break;
 
       case 'card':
       default:
-        els.targetBox.style.width = '240px';
-        els.targetBox.style.height = '240px';
+        els.targetBox.style.width = '145px';
+        els.targetBox.style.height = '130px';
         els.targetBox.style.borderRadius = `${state.borderRadius}px`;
         els.targetBox.innerHTML = `
-          <div class="box-content-card">
-            <div class="box-avatar">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <div class="box-content-card" style="gap: 6px;">
+            <div class="box-avatar" style="width: 32px; height: 32px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
             </div>
-            <div class="box-title">Modern Card</div>
-            <div class="box-desc">Multi-layer shadow test container</div>
-            <span class="box-pill-badge">Active Preview</span>
+            <div class="box-title" style="font-size: 0.88rem;">Modern Card</div>
+            <span class="box-pill-badge" style="font-size: 0.65rem; padding: 2px 8px;">Active</span>
           </div>
         `;
         break;
