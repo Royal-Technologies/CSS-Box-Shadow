@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
   <meta name="description" content="A next-generation, open-source CSS Box Shadow Generator. Create multi-layer shadows, fine-tune with a 2D interactive light joystick, preview live cards & buttons, and export directly to CSS or Tailwind CSS.">
   <meta name="keywords" content="css box shadow, box shadow generator, tailwind shadow, multi-layer shadow, css generator, developer tools, royal technologies">
   <meta name="author" content="Royal Technologies">
-  <meta name="theme-color" content="#0b0f17">
+  <meta name="theme-color" content="#f8fafc">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
@@ -38,10 +38,7 @@
           </svg>
         </div>
         <div class="brand-info">
-          <h1>
-            BoxShadow Studio
-            <span class="brand-badge">v1.0 Open Source</span>
-          </h1>
+          <h1>BoxShadow Studio</h1>
           <span class="brand-subtitle">Next-Gen Multi-Layer CSS Shadow Designer</span>
         </div>
       </a>
@@ -154,7 +151,7 @@
           <div class="joystick-container">
             <div class="joystick-header">
               <span class="joystick-title">2D Light Direction Pad</span>
-              <span id="joystickCoords" class="joystick-coords">X: 0px | Y: 14px</span>
+              <span id="joystickCoords" class="joystick-coords">X: 0px | Y: 12px</span>
             </div>
             <div id="joystickPad" class="joystick-pad" title="Drag to adjust X and Y shadow offsets visually">
               <div class="joystick-axes"></div>
@@ -182,8 +179,8 @@
                 <label class="control-label" for="offsetYSlider">Offset Y</label>
               </div>
               <div class="control-input-wrapper">
-                <input type="range" id="offsetYSlider" class="range-slider" min="-100" max="100" value="14">
-                <input type="number" id="offsetYNum" class="num-input" min="-100" max="100" value="14">
+                <input type="range" id="offsetYSlider" class="range-slider" min="-100" max="100" value="12">
+                <input type="number" id="offsetYNum" class="num-input" min="-100" max="100" value="12">
               </div>
             </div>
 
@@ -193,8 +190,8 @@
                 <label class="control-label" for="blurSlider">Blur Radius</label>
               </div>
               <div class="control-input-wrapper">
-                <input type="range" id="blurSlider" class="range-slider" min="0" max="150" value="28">
-                <input type="number" id="blurNum" class="num-input" min="0" max="150" value="28">
+                <input type="range" id="blurSlider" class="range-slider" min="0" max="150" value="24">
+                <input type="number" id="blurNum" class="num-input" min="0" max="150" value="24">
               </div>
             </div>
 
@@ -204,8 +201,8 @@
                 <label class="control-label" for="spreadSlider">Spread Radius</label>
               </div>
               <div class="control-input-wrapper">
-                <input type="range" id="spreadSlider" class="range-slider" min="-50" max="50" value="-5">
-                <input type="number" id="spreadNum" class="num-input" min="-50" max="50" value="-5">
+                <input type="range" id="spreadSlider" class="range-slider" min="-50" max="50" value="-4">
+                <input type="number" id="spreadNum" class="num-input" min="-50" max="50" value="-4">
               </div>
             </div>
 
@@ -226,8 +223,8 @@
                 <label class="control-label" for="opacitySlider">Opacity (Alpha %)</label>
               </div>
               <div class="control-input-wrapper">
-                <input type="range" id="opacitySlider" class="range-slider" min="0" max="100" value="35">
-                <input type="number" id="opacityNum" class="num-input" min="0" max="100" value="35">
+                <input type="range" id="opacitySlider" class="range-slider" min="0" max="100" value="12">
+                <input type="number" id="opacityNum" class="num-input" min="0" max="100" value="12">
               </div>
             </div>
           </div>
@@ -266,20 +263,20 @@
 
     </div>
 
-    <!-- PANEL 2 (RIGHT COLUMN): Sticky Compact Live Preview & Code (স্টিকি থাকবে যাতে বামে স্ক্রল করলে প্রিভিউ হারিয়ে না যায়) -->
+    <!-- PANEL 2 (RIGHT COLUMN): Sticky Compact Live Preview & Code (স্টিকি থাকবে) -->
     <div class="sticky-preview-column">
       
-      <!-- Compact Stage Customization Toolbar -->
+      <!-- Compact Stage Customization Toolbar with Card Controls Integrated -->
       <div class="preview-toolbar compact-toolbar">
-        <!-- Canvas Background Selector -->
+        <!-- Canvas Background Selector (Default: Light active) -->
         <div class="toolbar-group">
           <span class="toolbar-label">Canvas:</span>
           <div class="segmented-control">
-            <button class="segmented-btn active" data-canvas-bg="bg-dots">Dots</button>
+            <button class="segmented-btn" data-canvas-bg="bg-dots">Dots</button>
             <button class="segmented-btn" data-canvas-bg="bg-grid">Grid</button>
             <button class="segmented-btn" data-canvas-bg="bg-checker">Checker</button>
             <button class="segmented-btn" data-canvas-bg="bg-mesh">Mesh</button>
-            <button class="segmented-btn" data-canvas-bg="bg-white">Light</button>
+            <button class="segmented-btn active" data-canvas-bg="bg-white">Light</button>
           </div>
         </div>
 
@@ -294,41 +291,33 @@
           </div>
         </div>
 
+        <!-- Card Color & Radius in Toolbar -->
+        <div class="toolbar-group">
+          <span class="toolbar-label">Card:</span>
+          <input type="color" id="boxColorPicker" value="#ffffff" title="Change Card Color" style="width: 22px; height: 22px; border: none; background: none; cursor: pointer; border-radius: 4px;">
+          <input type="range" id="borderRadiusSlider" min="0" max="40" value="16" style="width: 50px;" title="Border Radius">
+          <span id="borderRadiusVal" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">16px</span>
+        </div>
+
         <!-- 3D Tilt Toggle -->
         <div class="toolbar-group">
           <button id="tiltToggleBtn" class="btn btn-sm btn-ghost active" title="Toggle realistic 3D perspective hover effect">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
               <path d="m3.3 7 8.7 5 8.7-5"/>
               <path d="M12 22V12"/>
             </svg>
-            <span>3D Tilt</span>
+            <span>Tilt</span>
           </button>
         </div>
       </div>
 
-      <!-- Compact Live Canvas Viewport (ছোট এবং দৃষ্টিনন্দন) -->
-      <div id="canvasViewport" class="canvas-viewport compact-viewport bg-dots">
-        
-        <!-- Live Target Element with Box Shadow -->
-        <div id="targetBox" class="target-box compact-target">
+      <!-- Compact Live Canvas Viewport (ছোট এবং কম পেডিং) -->
+      <div id="canvasViewport" class="canvas-viewport compact-viewport bg-white">
+        <!-- Live Target Element with Box Shadow (Default: Clean White Card with Crisp Text) -->
+        <div id="targetBox" class="target-box compact-target is-light-box">
           <!-- Rendered via JS according to selected shape -->
         </div>
-
-        <!-- Floating Box Quick Tweaks Toolbar -->
-        <div class="box-quick-tweaks compact-tweaks">
-          <div class="tweak-item">
-            <span>Color:</span>
-            <input type="color" id="boxColorPicker" value="#1e293b" style="width: 20px; height: 20px; border: none; background: none; cursor: pointer; border-radius: 4px;">
-          </div>
-          <div style="width: 1px; height: 14px; background: var(--border-color);"></div>
-          <div class="tweak-item">
-            <span>Radius:</span>
-            <input type="range" id="borderRadiusSlider" min="0" max="60" value="20" style="width: 60px;">
-            <span id="borderRadiusVal" style="font-family: var(--font-mono); font-size: 0.72rem;">20px</span>
-          </div>
-        </div>
-
       </div>
 
       <!-- Code Export Box -->

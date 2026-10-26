@@ -272,17 +272,17 @@
   // --- Application State ---
   const state = {
     layers: [
-      { id: 1, inset: false, x: 0, y: 14, blur: 28, spread: -5, color: '#000000', opacity: 0.35, active: true },
-      { id: 2, inset: false, x: 0, y: 4, blur: 10, spread: -2, color: '#000000', opacity: 0.2, active: true }
+      { id: 1, inset: false, x: 0, y: 12, blur: 24, spread: -4, color: '#000000', opacity: 0.12, active: true },
+      { id: 2, inset: false, x: 0, y: 4, blur: 8, spread: -2, color: '#000000', opacity: 0.08, active: true }
     ],
     selectedLayerId: 1,
     activeTab: 'css', // 'css', 'tailwind', 'vars', 'rules'
-    canvasBg: 'bg-dots',
+    canvasBg: 'bg-white', // Default Light Canvas
     boxShape: 'card', // 'card', 'box', 'button', 'circle'
-    boxColor: '#1e293b',
-    borderRadius: 20,
-    boxWidth: 240,
-    boxHeight: 240,
+    boxColor: '#ffffff', // Default Clean White Card
+    borderRadius: 16,
+    boxWidth: 220,
+    boxHeight: 110,
     tiltEnabled: true,
     filterCategory: 'all'
   };
@@ -960,22 +960,38 @@
     });
   });
 
+  function updateTargetBoxContrast() {
+    const hex = (state.boxColor || '#ffffff').replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16) || 0;
+    const g = parseInt(hex.substring(2, 4), 16) || 0;
+    const b = parseInt(hex.substring(4, 6), 16) || 0;
+    const luminance = (r * 299 + g * 587 + b * 114) / 1000;
+
+    if (luminance > 140) {
+      els.targetBox.classList.add('is-light-box');
+      els.targetBox.classList.remove('is-dark-box');
+    } else {
+      els.targetBox.classList.add('is-dark-box');
+      els.targetBox.classList.remove('is-light-box');
+    }
+  }
+
   function applyBoxShape() {
     switch (state.boxShape) {
       case 'circle':
-        els.targetBox.style.width = '120px';
-        els.targetBox.style.height = '120px';
+        els.targetBox.style.width = '105px';
+        els.targetBox.style.height = '105px';
         els.targetBox.style.borderRadius = '50%';
         els.targetBox.innerHTML = `
-          <div class="box-avatar" style="width: 40px; height: 40px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="box-avatar" style="width: 36px; height: 36px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
         `;
         break;
 
       case 'button':
-        els.targetBox.style.width = '150px';
-        els.targetBox.style.height = '44px';
+        els.targetBox.style.width = '190px';
+        els.targetBox.style.height = '42px';
         els.targetBox.style.borderRadius = '9999px';
         els.targetBox.innerHTML = `
           <span style="font-weight: 600; font-size: 0.82rem; display: flex; align-items: center; gap: 6px;">
@@ -986,36 +1002,38 @@
         break;
 
       case 'box':
-        els.targetBox.style.width = '140px';
-        els.targetBox.style.height = '130px';
+        els.targetBox.style.width = '200px';
+        els.targetBox.style.height = '110px';
         els.targetBox.style.borderRadius = `${state.borderRadius}px`;
         els.targetBox.innerHTML = `
-          <div style="font-weight: 600; font-size: 0.9rem; opacity: 0.8;">Box Target</div>
+          <div style="font-weight: 600; font-size: 0.9rem; opacity: 0.85;">Box Target</div>
         `;
         break;
 
       case 'card':
       default:
-        els.targetBox.style.width = '145px';
-        els.targetBox.style.height = '130px';
+        els.targetBox.style.width = '220px';
+        els.targetBox.style.height = '110px';
         els.targetBox.style.borderRadius = `${state.borderRadius}px`;
         els.targetBox.innerHTML = `
-          <div class="box-content-card" style="gap: 6px;">
-            <div class="box-avatar" style="width: 32px; height: 32px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <div class="box-content-card" style="gap: 4px;">
+            <div class="box-avatar" style="width: 28px; height: 28px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
             </div>
-            <div class="box-title" style="font-size: 0.88rem;">Modern Card</div>
-            <span class="box-pill-badge" style="font-size: 0.65rem; padding: 2px 8px;">Active</span>
+            <div class="box-title" style="font-size: 0.84rem;">Modern Card</div>
+            <span class="box-pill-badge" style="font-size: 0.62rem; padding: 1px 7px;">Active</span>
           </div>
         `;
         break;
     }
+    updateTargetBoxContrast();
   }
 
   // Box Color
   els.boxColorPicker.addEventListener('input', (e) => {
     state.boxColor = e.target.value;
     els.targetBox.style.backgroundColor = state.boxColor;
+    updateTargetBoxContrast();
   });
 
   // Border Radius Slider
@@ -1154,18 +1172,16 @@
 
   // --- Theme Toggle (Dark / Light) ---
   els.themeToggleBtn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = current === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('boxshadow-theme', next);
     showToast(`Switched to ${next} mode`);
   });
 
-  // Restore saved theme
-  const savedTheme = localStorage.getItem('boxshadow-theme');
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }
+  // Restore saved theme or default to light mode
+  const savedTheme = localStorage.getItem('boxshadow-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
 
   // --- Toast Notification Utility ---
   function showToast(message, type = 'info') {

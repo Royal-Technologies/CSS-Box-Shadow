@@ -257,25 +257,25 @@ body {
 .app-main {
   max-width: 1720px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 16px 20px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 460px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 20px;
   align-items: start;
   min-height: calc(100vh - var(--header-height));
 }
 
 @media (max-width: 1280px) {
   .app-main {
-    grid-template-columns: minmax(0, 1fr) 420px;
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 16px;
   }
 }
 
 @media (max-width: 1024px) {
   .app-main {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
   .sticky-preview-column {
     position: static !important;
@@ -287,14 +287,14 @@ body {
 .left-workbench-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   min-width: 0;
 }
 
 .settings-controls-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 20px;
+  gap: 12px 16px;
 }
 
 @media (max-width: 680px) {
@@ -307,12 +307,12 @@ body {
 .sticky-preview-column {
   position: -webkit-sticky;
   position: sticky;
-  top: calc(var(--header-height) + 16px);
+  top: calc(var(--header-height) + 12px);
   align-self: start;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   z-index: 30;
 }
 
@@ -320,7 +320,7 @@ body {
 .panel {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -328,16 +328,16 @@ body {
 }
 
 .panel-header {
-  padding: 16px 20px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 
 .panel-title {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -350,10 +350,10 @@ body {
 }
 
 .panel-body {
-  padding: 20px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
 /* Layers Manager */
@@ -839,37 +839,40 @@ input:checked + .slider-switch::before {
   box-shadow: 0 0 8px var(--accent-primary);
 }
 
-/* Canvas Viewport */
+/* Canvas Viewport (Compact with reduced outer padding) */
 .canvas-viewport {
   width: 100%;
-  height: 240px;
-  min-height: 220px;
-  max-height: 250px;
-  border-radius: var(--radius-xl);
+  height: 165px;
+  min-height: 155px;
+  max-height: 175px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
   transition: background var(--transition-normal);
-  background-color: #0d121d;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
 }
 
 /* Background Patterns */
 .canvas-viewport.bg-dots {
+  background-color: #0d121d;
   background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
 }
 
 .canvas-viewport.bg-grid {
+  background-color: #0d121d;
   background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .canvas-viewport.bg-checker {
+  background-color: #0d121d;
   background-image: linear-gradient(45deg, #182234 25%, transparent 25%),
                     linear-gradient(-45deg, #182234 25%, transparent 25%),
                     linear-gradient(45deg, transparent 75%, #182234 75%),
@@ -887,21 +890,21 @@ input:checked + .slider-switch::before {
 
 .canvas-viewport.bg-white {
   background-color: #ffffff;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
 }
 
-/* Target Element in Preview (Compact & Sharp) */
+/* Target Element in Preview (Snug fit, minimal outer padding) */
 .target-box {
-  width: 145px;
-  height: 130px;
-  background-color: #1e293b;
+  width: 220px;
+  height: 110px;
+  background-color: #ffffff;
   border-radius: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 8px 12px;
   text-align: center;
   user-select: none;
   transition: box-shadow 0.05s ease-out, transform 0.15s ease-out, border-radius var(--transition-fast), background-color var(--transition-fast);
@@ -917,45 +920,72 @@ input:checked + .slider-switch::before {
   transform-style: preserve-3d;
 }
 
+/* Dynamic High-Contrast Card Styles */
+.target-box.is-light-box {
+  color: #0f172a;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.target-box.is-light-box .box-title {
+  color: #0f172a !important;
+}
+.target-box.is-light-box .box-desc {
+  color: #64748b !important;
+}
+.target-box.is-light-box .box-pill-badge {
+  background: rgba(99, 102, 241, 0.12) !important;
+  color: #4f46e5 !important;
+}
+
+.target-box.is-dark-box {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.target-box.is-dark-box .box-title {
+  color: #ffffff !important;
+}
+.target-box.is-dark-box .box-desc {
+  color: #94a3b8 !important;
+}
+.target-box.is-dark-box .box-pill-badge {
+  background: rgba(99, 102, 241, 0.25) !important;
+  color: #a5b4fc !important;
+}
+
 /* Inner elements for card preview mode */
 .box-content-card {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   align-items: center;
 }
 
 .box-avatar {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: var(--radius-full);
   background: var(--accent-gradient);
   display: grid;
   place-items: center;
   color: #ffffff;
-  box-shadow: 0 3px 8px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
 }
 
 .box-title {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
-  color: var(--text-primary);
   line-height: 1.2;
 }
 
 .box-desc {
-  font-size: 0.68rem;
-  color: var(--text-secondary);
+  font-size: 0.65rem;
 }
 
 .box-pill-badge {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  padding: 2px 8px;
+  padding: 1px 7px;
   border-radius: var(--radius-full);
-  background: rgba(99, 102, 241, 0.2);
-  color: #818cf8;
 }
 
 /* Box Customizer Floating Bar (Compact) */
