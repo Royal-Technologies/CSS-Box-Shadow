@@ -7,15 +7,16 @@
 (function () {
   'use strict';
 
-  // --- Initial Presets Collection ---
+  // --- Initial Presets Collection (26 Handcrafted Modern Presets) ---
   const PRESETS = [
+    // 1. Minimal & Clean (6 presets)
     {
       id: 'subtle-card',
       name: 'Subtle Card',
       category: 'minimal',
       layers: [
-        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#000000', opacity: 0.1, active: true },
-        { inset: false, x: 0, y: 1, blur: 2, spread: -1, color: '#000000', opacity: 0.1, active: true }
+        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#000000', opacity: 0.12, active: true },
+        { inset: false, x: 0, y: 1, blur: 2, spread: -1, color: '#000000', opacity: 0.15, active: true }
       ]
     },
     {
@@ -23,8 +24,8 @@
       name: 'Modern SaaS Elevation',
       category: 'minimal',
       layers: [
-        { inset: false, x: 0, y: 10, blur: 25, spread: -5, color: '#000000', opacity: 0.15, active: true },
-        { inset: false, x: 0, y: 8, blur: 10, spread: -6, color: '#000000', opacity: 0.1, active: true }
+        { inset: false, x: 0, y: 10, blur: 25, spread: -5, color: '#000000', opacity: 0.16, active: true },
+        { inset: false, x: 0, y: 8, blur: 10, spread: -6, color: '#000000', opacity: 0.12, active: true }
       ]
     },
     {
@@ -32,18 +33,47 @@
       name: 'Apple Float',
       category: 'minimal',
       layers: [
-        { inset: false, x: 0, y: 20, blur: 40, spread: -10, color: '#0f172a', opacity: 0.18, active: true },
-        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#0f172a', opacity: 0.08, active: true }
+        { inset: false, x: 0, y: 20, blur: 40, spread: -10, color: '#0f172a', opacity: 0.22, active: true },
+        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#0f172a', opacity: 0.1, active: true }
       ]
     },
+    {
+      id: 'cloud-feather',
+      name: 'Ultra Soft Cloud',
+      category: 'minimal',
+      layers: [
+        { inset: false, x: 0, y: 25, blur: 50, spread: -12, color: '#000000', opacity: 0.22, active: true },
+        { inset: false, x: 0, y: 4, blur: 12, spread: 0, color: '#000000', opacity: 0.08, active: true }
+      ]
+    },
+    {
+      id: 'saas-hover',
+      name: 'Clean Card Hover',
+      category: 'minimal',
+      layers: [
+        { inset: false, x: 0, y: 20, blur: 25, spread: -5, color: '#000000', opacity: 0.14, active: true },
+        { inset: false, x: 0, y: 8, blur: 10, spread: -6, color: '#000000', opacity: 0.12, active: true }
+      ]
+    },
+    {
+      id: 'ambient-deep',
+      name: 'Deep Ambient Occlusion',
+      category: 'minimal',
+      layers: [
+        { inset: false, x: 0, y: 30, blur: 60, spread: 0, color: '#000000', opacity: 0.25, active: true },
+        { inset: false, x: 0, y: 10, blur: 20, spread: 0, color: '#000000', opacity: 0.15, active: true }
+      ]
+    },
+
+    // 2. Material Design 3 (4 presets)
     {
       id: 'material-l1',
       name: 'Material Elevation 1',
       category: 'material',
       layers: [
-        { inset: false, x: 0, y: 2, blur: 1, spread: -1, color: '#000000', opacity: 0.2, active: true },
-        { inset: false, x: 0, y: 1, blur: 1, spread: 0, color: '#000000', opacity: 0.14, active: true },
-        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#000000', opacity: 0.12, active: true }
+        { inset: false, x: 0, y: 2, blur: 1, spread: -1, color: '#000000', opacity: 0.22, active: true },
+        { inset: false, x: 0, y: 1, blur: 1, spread: 0, color: '#000000', opacity: 0.16, active: true },
+        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#000000', opacity: 0.14, active: true }
       ]
     },
     {
@@ -51,9 +81,9 @@
       name: 'Material Elevation 3',
       category: 'material',
       layers: [
-        { inset: false, x: 0, y: 5, blur: 5, spread: -3, color: '#000000', opacity: 0.2, active: true },
-        { inset: false, x: 0, y: 8, blur: 10, spread: 1, color: '#000000', opacity: 0.14, active: true },
-        { inset: false, x: 0, y: 3, blur: 14, spread: 2, color: '#000000', opacity: 0.12, active: true }
+        { inset: false, x: 0, y: 5, blur: 5, spread: -3, color: '#000000', opacity: 0.22, active: true },
+        { inset: false, x: 0, y: 8, blur: 10, spread: 1, color: '#000000', opacity: 0.16, active: true },
+        { inset: false, x: 0, y: 3, blur: 14, spread: 2, color: '#000000', opacity: 0.14, active: true }
       ]
     },
     {
@@ -61,19 +91,31 @@
       name: 'Material Floating Dialog',
       category: 'material',
       layers: [
-        { inset: false, x: 0, y: 11, blur: 15, spread: -7, color: '#000000', opacity: 0.25, active: true },
-        { inset: false, x: 0, y: 24, blur: 38, spread: 3, color: '#000000', opacity: 0.18, active: true },
-        { inset: false, x: 0, y: 9, blur: 46, spread: 8, color: '#000000', opacity: 0.14, active: true }
+        { inset: false, x: 0, y: 11, blur: 15, spread: -7, color: '#000000', opacity: 0.28, active: true },
+        { inset: false, x: 0, y: 24, blur: 38, spread: 3, color: '#000000', opacity: 0.2, active: true },
+        { inset: false, x: 0, y: 9, blur: 46, spread: 8, color: '#000000', opacity: 0.16, active: true }
       ]
     },
+    {
+      id: 'material-modal',
+      name: 'Material 3 Modal',
+      category: 'material',
+      layers: [
+        { inset: false, x: 0, y: 12, blur: 17, spread: 2, color: '#000000', opacity: 0.18, active: true },
+        { inset: false, x: 0, y: 5, blur: 22, spread: 4, color: '#000000', opacity: 0.14, active: true },
+        { inset: false, x: 0, y: 7, blur: 8, spread: -4, color: '#000000', opacity: 0.22, active: true }
+      ]
+    },
+
+    // 3. Neon & Glow (6 presets)
     {
       id: 'neon-cyan',
       name: 'Cyberpunk Cyan Glow',
       category: 'glow',
       layers: [
-        { inset: false, x: 0, y: 0, blur: 15, spread: 2, color: '#06b6d4', opacity: 0.6, active: true },
-        { inset: false, x: 0, y: 0, blur: 35, spread: 8, color: '#0891b2', opacity: 0.4, active: true },
-        { inset: false, x: 0, y: 0, blur: 70, spread: 15, color: '#0e7490', opacity: 0.25, active: true }
+        { inset: false, x: 0, y: 0, blur: 15, spread: 2, color: '#06b6d4', opacity: 0.7, active: true },
+        { inset: false, x: 0, y: 0, blur: 35, spread: 8, color: '#0891b2', opacity: 0.45, active: true },
+        { inset: false, x: 0, y: 0, blur: 70, spread: 15, color: '#0e7490', opacity: 0.3, active: true }
       ]
     },
     {
@@ -81,9 +123,9 @@
       name: 'Purple Velvet Dream',
       category: 'glow',
       layers: [
-        { inset: false, x: 0, y: 10, blur: 30, spread: -5, color: '#a855f7', opacity: 0.5, active: true },
-        { inset: false, x: 0, y: 0, blur: 15, spread: 3, color: '#c084fc', opacity: 0.4, active: true },
-        { inset: false, x: 0, y: 25, blur: 60, spread: 5, color: '#7e22ce', opacity: 0.3, active: true }
+        { inset: false, x: 0, y: 10, blur: 30, spread: -5, color: '#a855f7', opacity: 0.6, active: true },
+        { inset: false, x: 0, y: 0, blur: 15, spread: 3, color: '#c084fc', opacity: 0.5, active: true },
+        { inset: false, x: 0, y: 25, blur: 60, spread: 5, color: '#7e22ce', opacity: 0.35, active: true }
       ]
     },
     {
@@ -91,17 +133,46 @@
       name: 'Sunset Radiance',
       category: 'glow',
       layers: [
-        { inset: false, x: 0, y: 12, blur: 24, spread: -4, color: '#f97316', opacity: 0.45, active: true },
-        { inset: false, x: 0, y: 24, blur: 48, spread: 2, color: '#ef4444', opacity: 0.3, active: true }
+        { inset: false, x: 0, y: 12, blur: 24, spread: -4, color: '#f97316', opacity: 0.55, active: true },
+        { inset: false, x: 0, y: 24, blur: 48, spread: 2, color: '#ef4444', opacity: 0.38, active: true }
       ]
     },
+    {
+      id: 'emerald-matrix',
+      name: 'Emerald Matrix Glow',
+      category: 'glow',
+      layers: [
+        { inset: false, x: 0, y: 0, blur: 20, spread: 3, color: '#10b981', opacity: 0.7, active: true },
+        { inset: false, x: 0, y: 0, blur: 45, spread: 8, color: '#059669', opacity: 0.45, active: true }
+      ]
+    },
+    {
+      id: 'cyber-pink',
+      name: 'Magenta Cyber Aura',
+      category: 'glow',
+      layers: [
+        { inset: false, x: 0, y: 0, blur: 20, spread: 2, color: '#ec4899', opacity: 0.75, active: true },
+        { inset: false, x: 0, y: 10, blur: 40, spread: 6, color: '#be185d', opacity: 0.5, active: true }
+      ]
+    },
+    {
+      id: 'golden-sun',
+      name: 'Solar Flare Gold',
+      category: 'glow',
+      layers: [
+        { inset: false, x: 0, y: 0, blur: 25, spread: 4, color: '#f59e0b', opacity: 0.75, active: true },
+        { inset: false, x: 0, y: 8, blur: 45, spread: 8, color: '#d97706', opacity: 0.45, active: true }
+      ]
+    },
+
+    // 4. Neumorphism (4 presets)
     {
       id: 'neumorphic-soft',
       name: 'Neumorphic Soft Dual',
       category: 'neumorphism',
       layers: [
-        { inset: false, x: 8, y: 8, blur: 16, spread: 0, color: '#000000', opacity: 0.4, active: true },
-        { inset: false, x: -8, y: -8, blur: 16, spread: 0, color: '#ffffff', opacity: 0.08, active: true }
+        { inset: false, x: 8, y: 8, blur: 16, spread: 0, color: '#000000', opacity: 0.35, active: true },
+        { inset: false, x: -8, y: -8, blur: 16, spread: 0, color: '#ffffff', opacity: 0.85, active: true }
       ]
     },
     {
@@ -109,10 +180,30 @@
       name: 'Neumorphic Inset Pressed',
       category: 'neumorphism',
       layers: [
-        { inset: true, x: 6, y: 6, blur: 12, spread: 0, color: '#000000', opacity: 0.45, active: true },
-        { inset: true, x: -6, y: -6, blur: 12, spread: 0, color: '#ffffff', opacity: 0.08, active: true }
+        { inset: true, x: 6, y: 6, blur: 12, spread: 0, color: '#000000', opacity: 0.4, active: true },
+        { inset: true, x: -6, y: -6, blur: 12, spread: 0, color: '#ffffff', opacity: 0.85, active: true }
       ]
     },
+    {
+      id: 'neumorphic-convex',
+      name: 'Neumorphic Floating Pill',
+      category: 'neumorphism',
+      layers: [
+        { inset: false, x: 10, y: 10, blur: 20, spread: 0, color: '#000000', opacity: 0.38, active: true },
+        { inset: false, x: -10, y: -10, blur: 20, spread: 0, color: '#ffffff', opacity: 0.9, active: true }
+      ]
+    },
+    {
+      id: 'neumorphic-concave',
+      name: 'Neumorphic Carved Well',
+      category: 'neumorphism',
+      layers: [
+        { inset: true, x: 8, y: 8, blur: 14, spread: 0, color: '#000000', opacity: 0.45, active: true },
+        { inset: true, x: -8, y: -8, blur: 14, spread: 0, color: '#ffffff', opacity: 0.9, active: true }
+      ]
+    },
+
+    // 5. Retro & Brutalism (4 presets)
     {
       id: 'brutalist-solid',
       name: 'Brutalist 90s Pop',
@@ -132,15 +223,48 @@
       ]
     },
     {
+      id: 'comic-edge',
+      name: 'Comic Double Offset',
+      category: 'retro',
+      layers: [
+        { inset: false, x: 5, y: 5, blur: 0, spread: 0, color: '#000000', opacity: 1, active: true },
+        { inset: false, x: 10, y: 10, blur: 0, spread: 0, color: '#3b82f6', opacity: 1, active: true }
+      ]
+    },
+    {
+      id: 'synthwave-80s',
+      name: '80s Synthwave Dual',
+      category: 'retro',
+      layers: [
+        { inset: false, x: 6, y: 6, blur: 0, spread: 0, color: '#ec4899', opacity: 1, active: true },
+        { inset: false, x: 12, y: 12, blur: 0, spread: 0, color: '#06b6d4', opacity: 1, active: true }
+      ]
+    },
+
+    // 6. Natural Physics Curves (2 presets)
+    {
       id: 'physics-smooth',
       name: 'Natural 5-Layer Diffusion',
       category: 'physics',
       layers: [
-        { inset: false, x: 0, y: 1, blur: 2, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 2, blur: 4, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 4, blur: 8, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 8, blur: 16, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 16, blur: 32, spread: 0, color: '#000000', opacity: 0.07, active: true }
+        { inset: false, x: 0, y: 1, blur: 2, spread: 0, color: '#000000', opacity: 0.08, active: true },
+        { inset: false, x: 0, y: 2, blur: 4, spread: 0, color: '#000000', opacity: 0.08, active: true },
+        { inset: false, x: 0, y: 4, blur: 8, spread: 0, color: '#000000', opacity: 0.08, active: true },
+        { inset: false, x: 0, y: 8, blur: 16, spread: 0, color: '#000000', opacity: 0.08, active: true },
+        { inset: false, x: 0, y: 16, blur: 32, spread: 0, color: '#000000', opacity: 0.08, active: true }
+      ]
+    },
+    {
+      id: 'smooth-exponential',
+      name: 'Josh Comeau 6-Layer Curve',
+      category: 'physics',
+      layers: [
+        { inset: false, x: 0, y: 1, blur: 1, spread: 0, color: '#000000', opacity: 0.07, active: true },
+        { inset: false, x: 0, y: 2, blur: 2, spread: 0, color: '#000000', opacity: 0.07, active: true },
+        { inset: false, x: 0, y: 4, blur: 4, spread: 0, color: '#000000', opacity: 0.07, active: true },
+        { inset: false, x: 0, y: 8, blur: 8, spread: 0, color: '#000000', opacity: 0.07, active: true },
+        { inset: false, x: 0, y: 16, blur: 16, spread: 0, color: '#000000', opacity: 0.07, active: true },
+        { inset: false, x: 0, y: 28, blur: 28, spread: 0, color: '#000000', opacity: 0.07, active: true }
       ]
     }
   ];
@@ -725,23 +849,66 @@
       : PRESETS.filter(p => p.category === state.filterCategory);
 
     filtered.forEach(preset => {
-      // Calculate preview shadow for mini box
+      // Determine optimal contrast stage background & mini-box appearance
+      let stageClass = 'stage-light';
+      let boxBg = '#ffffff';
+      let boxBorder = '1px solid rgba(0, 0, 0, 0.06)';
+
+      if (preset.category === 'neumorphism') {
+        stageClass = 'stage-neumorphic';
+        boxBg = '#e2e8f0';
+        boxBorder = 'none';
+      } else if (preset.category === 'glow') {
+        stageClass = 'stage-dark';
+        boxBg = '#0f172a';
+        boxBorder = '1px solid rgba(255, 255, 255, 0.12)';
+      } else if (preset.category === 'retro') {
+        stageClass = 'stage-light';
+        boxBg = '#ffffff';
+        boxBorder = '2px solid #0f172a';
+      }
+
+      // Compute crisp, visible preview shadow
       const shadowVal = preset.layers.map(l => {
         const inset = l.inset ? 'inset ' : '';
-        const rgba = hexToRgba(l.color, l.opacity);
-        return `${inset}${Math.round(l.x * 0.4)}px ${Math.round(l.y * 0.4)}px ${Math.round(l.blur * 0.4)}px ${Math.round(l.spread * 0.4)}px ${rgba}`;
+        const blur = l.blur === 0 ? 0 : Math.max(1, Math.round(l.blur * 0.75));
+        const x = Math.round(l.x * 0.75);
+        const y = Math.round(l.y * 0.75);
+        const spread = Math.round(l.spread * 0.75);
+        
+        // Ensure faint shadows remain clearly discernible on the card thumbnail
+        let opacity = l.opacity;
+        if (stageClass === 'stage-light' && opacity < 0.15 && l.color === '#000000') {
+          opacity = Math.min(0.24, opacity * 1.6);
+        }
+
+        const rgba = hexToRgba(l.color, opacity);
+        return `${inset}${x}px ${y}px ${blur}px ${spread}px ${rgba}`;
       }).join(', ');
 
       const card = document.createElement('div');
       card.className = 'preset-card';
+      card.setAttribute('data-preset-id', preset.id);
       card.innerHTML = `
-        <div class="preset-mini-box" style="box-shadow: ${shadowVal};"></div>
-        <span class="preset-name">${preset.name}</span>
-        <span class="preset-category-tag">${preset.category.toUpperCase()}</span>
+        <div class="preset-preview-stage ${stageClass}">
+          <div class="preset-mini-box" style="background-color: ${boxBg}; border: ${boxBorder}; box-shadow: ${shadowVal};"></div>
+        </div>
+        <div class="preset-info">
+          <div class="preset-header-row">
+            <span class="preset-name">${preset.name}</span>
+            <span class="preset-layers-badge">${preset.layers.length}L</span>
+          </div>
+          <div class="preset-meta-row">
+            <span class="preset-category-tag">${preset.category}</span>
+            <span class="preset-apply-hint">Click to Apply</span>
+          </div>
+        </div>
       `;
 
       card.addEventListener('click', () => {
         applyPreset(preset);
+        document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('active-preset'));
+        card.classList.add('active-preset');
       });
 
       els.presetsGrid.appendChild(card);
@@ -757,7 +924,7 @@
     syncInputsWithSelectedLayer();
     updatePreview();
     renderLayersList();
-    showToast(`Loaded "${preset.name}" preset`);
+    showToast(`Loaded "${preset.name}" preset (${preset.layers.length} layers) ✨`);
   }
 
   // Preset category filters

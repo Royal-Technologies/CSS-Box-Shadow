@@ -36,16 +36,16 @@ Traditional shadow generators only offer single-layer drop shadows and basic sli
 
 ## 🎨 Curated Preset Library
 
-BoxShadow Studio includes 14+ handcrafted presets ready to inspect and customize:
+BoxShadow Studio includes 26+ handcrafted modern presets with high-contrast preview stages:
 
 | Category | Presets Included |
 | :--- | :--- |
-| **Minimal & Clean** | *Subtle Card, Modern SaaS Elevation, Apple Float* |
-| **Material 3** | *Material Elevation 1, Elevation 3, Floating Dialog* |
-| **Glow & Neon** | *Cyberpunk Cyan Glow, Purple Velvet Dream, Sunset Radiance* |
-| **Neumorphism** | *Neumorphic Soft Dual, Neumorphic Inset Pressed* |
-| **Retro & Brutalist** | *Brutalist 90s Pop, Retro Multi-Step 3D* |
-| **Natural Physics** | *Natural 5-Layer Diffusion (Exponential power-curve smooth shadow)* |
+| **Minimal & Clean** | *Subtle Card, Modern SaaS Elevation, Apple Float, Ultra Soft Cloud, Clean Card Hover, Deep Ambient Occlusion* |
+| **Material 3** | *Material Elevation 1, Elevation 3, Floating Dialog, Material 3 Modal* |
+| **Glow & Neon** | *Cyberpunk Cyan Glow, Purple Velvet Dream, Sunset Radiance, Emerald Matrix Glow, Magenta Cyber Aura, Solar Flare Gold* |
+| **Neumorphism** | *Neumorphic Soft Dual, Neumorphic Inset Pressed, Neumorphic Floating Pill, Neumorphic Carved Well* |
+| **Retro & Brutalist** | *Brutalist 90s Pop, Retro Multi-Step 3D, Comic Double Offset, 80s Synthwave Dual* |
+| **Natural Physics** | *Natural 5-Layer Diffusion, Josh Comeau 6-Layer Exponential Curve* |
 
 ---
 
