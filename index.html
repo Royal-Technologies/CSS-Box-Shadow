@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoxShadow Studio - Modern Multi-Layer CSS Box Shadow Generator</title>
+  
+  <!-- Meta & SEO Tags -->
+  <meta name="description" content="A next-generation, open-source CSS Box Shadow Generator. Create multi-layer shadows, fine-tune with a 2D interactive light joystick, preview live cards & buttons, and export directly to CSS or Tailwind CSS.">
+  <meta name="keywords" content="css box shadow, box shadow generator, tailwind shadow, multi-layer shadow, css generator, developer tools, royal technologies">
+  <meta name="author" content="Royal Technologies">
+  <meta name="theme-color" content="#0b0f17">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BoxShadow Studio - Modern Multi-Layer CSS Box Shadow Generator">
+  <meta property="og:description" content="Design realistic multi-layer CSS box-shadows with real-time preview, 2D light joystick, and 1-click Tailwind & CSS export.">
+  <meta property="og:url" content="https://royal-technologies.github.io/CSS-Box-Shadow/">
+
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="./" class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="14" height="14" x="7" y="7" rx="3"/>
+            <path d="M3 17V5a2 2 0 0 1 2-2h12" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <h1>
+            BoxShadow Studio
+            <span class="brand-badge">v1.0 Open Source</span>
+          </h1>
+          <span class="brand-subtitle">Next-Gen Multi-Layer CSS Shadow Designer</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Randomize Button -->
+        <button id="randomizeBtn" class="btn btn-ghost" title="Generate Aesthetic Random Shadow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/>
+            <path d="m14 7 3 3"/>
+            <path d="M5 6v4"/>
+            <path d="M19 14v4"/>
+            <path d="M10 2v2"/>
+            <path d="M7 8H3"/>
+            <path d="M21 16h-4"/>
+            <path d="M11 3H9"/>
+          </svg>
+          <span>Randomize</span>
+        </button>
+
+        <!-- Reset Button -->
+        <button id="resetBtn" class="btn btn-ghost" title="Reset all layers to default">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+          <span>Reset</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" class="btn btn-icon-only btn-ghost" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+        </button>
+
+        <!-- GitHub Repo Link -->
+        <a href="https://github.com/Royal-Technologies/CSS-Box-Shadow" target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="Star on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>Star on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Workspace -->
+  <main class="app-main">
+
+    <!-- Column 1: Layers & Active Layer Parameter Controls -->
+    <div class="sidebar-column">
+      
+      <!-- Panel 1: Multi-layer Stack Manager -->
+      <section class="panel" style="margin-bottom: 20px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            <span>Shadow Layers (<span id="layerCountBadge">2</span>)</span>
+          </div>
+          <button id="addLayerBtn" class="btn btn-sm btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Add Layer</span>
+          </button>
+        </div>
+        <div class="panel-body" style="padding: 12px;">
+          <!-- Dynamically populated shadow layers -->
+          <div id="layersList" class="layers-container"></div>
+        </div>
+      </section>
+
+      <!-- Panel 2: Active Layer Parameters -->
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <span id="activeLayerTitle">Layer #1 Settings</span>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <!-- Inset Switch -->
+          <div class="switch-wrapper">
+            <div class="switch-label">
+              <span class="switch-title">Inset Shadow</span>
+              <span class="switch-desc">Cast inside element bounds</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="insetToggle">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <!-- 2D Light Source Joystick Controller -->
+          <div class="joystick-container">
+            <div class="joystick-header">
+              <span class="joystick-title">2D Light Direction Pad</span>
+              <span id="joystickCoords" class="joystick-coords">X: 0px | Y: 14px</span>
+            </div>
+            <div id="joystickPad" class="joystick-pad" title="Drag to adjust X and Y shadow offsets visually">
+              <div class="joystick-axes"></div>
+              <div class="joystick-reticle"></div>
+              <div id="joystickHandle" class="joystick-handle"></div>
+            </div>
+          </div>
+
+          <!-- Offset X -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="offsetXSlider">Offset X (Horizontal)</label>
+            </div>
+            <div class="control-input-wrapper">
+              <input type="range" id="offsetXSlider" class="range-slider" min="-100" max="100" value="0">
+              <input type="number" id="offsetXNum" class="num-input" min="-100" max="100" value="0">
+            </div>
+          </div>
+
+          <!-- Offset Y -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="offsetYSlider">Offset Y (Vertical)</label>
+            </div>
+            <div class="control-input-wrapper">
+              <input type="range" id="offsetYSlider" class="range-slider" min="-100" max="100" value="14">
+              <input type="number" id="offsetYNum" class="num-input" min="-100" max="100" value="14">
+            </div>
+          </div>
+
+          <!-- Blur Radius -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="blurSlider">Blur Radius</label>
+            </div>
+            <div class="control-input-wrapper">
+              <input type="range" id="blurSlider" class="range-slider" min="0" max="150" value="28">
+              <input type="number" id="blurNum" class="num-input" min="0" max="150" value="28">
+            </div>
+          </div>
+
+          <!-- Spread Radius -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="spreadSlider">Spread Radius</label>
+            </div>
+            <div class="control-input-wrapper">
+              <input type="range" id="spreadSlider" class="range-slider" min="-50" max="50" value="-5">
+              <input type="number" id="spreadNum" class="num-input" min="-50" max="50" value="-5">
+            </div>
+          </div>
+
+          <!-- Color Picker & Hex -->
+          <div class="control-group">
+            <label class="control-label">Shadow Color</label>
+            <div class="color-picker-row">
+              <div class="color-input-wrapper">
+                <input type="color" id="colorPicker" class="color-picker-input" value="#000000">
+              </div>
+              <input type="text" id="colorHex" class="hex-input" value="#000000" maxlength="7">
+            </div>
+          </div>
+
+          <!-- Opacity Slider -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="opacitySlider">Opacity (Alpha %)</label>
+            </div>
+            <div class="control-input-wrapper">
+              <input type="range" id="opacitySlider" class="range-slider" min="0" max="100" value="35">
+              <input type="number" id="opacityNum" class="num-input" min="0" max="100" value="35">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Column 2: Live Preview Stage -->
+    <div class="preview-column">
+      
+      <!-- Stage Customization Toolbar -->
+      <div class="preview-toolbar">
+        <!-- Canvas Background Selector -->
+        <div class="toolbar-group">
+          <span class="toolbar-label">Canvas:</span>
+          <div class="segmented-control">
+            <button class="segmented-btn active" data-canvas-bg="bg-dots">Dots</button>
+            <button class="segmented-btn" data-canvas-bg="bg-grid">Grid</button>
+            <button class="segmented-btn" data-canvas-bg="bg-checker">Checker</button>
+            <button class="segmented-btn" data-canvas-bg="bg-mesh">Mesh</button>
+            <button class="segmented-btn" data-canvas-bg="bg-white">Light</button>
+          </div>
+        </div>
+
+        <!-- Target Shape Selector -->
+        <div class="toolbar-group">
+          <span class="toolbar-label">Shape:</span>
+          <div class="segmented-control">
+            <button class="segmented-btn active" data-shape="card">Card</button>
+            <button class="segmented-btn" data-shape="box">Box</button>
+            <button class="segmented-btn" data-shape="button">Button</button>
+            <button class="segmented-btn" data-shape="circle">Circle</button>
+          </div>
+        </div>
+
+        <!-- 3D Tilt Toggle -->
+        <div class="toolbar-group">
+          <button id="tiltToggleBtn" class="btn btn-sm btn-ghost active" title="Toggle realistic 3D perspective hover effect">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+              <path d="m3.3 7 8.7 5 8.7-5"/>
+              <path d="M12 22V12"/>
+            </svg>
+            <span>3D Tilt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Canvas Viewport -->
+      <div id="canvasViewport" class="canvas-viewport bg-dots">
+        
+        <!-- Live Target Element with Box Shadow -->
+        <div id="targetBox" class="target-box">
+          <!-- Rendered via JS according to selected shape -->
+        </div>
+
+        <!-- Floating Box Quick Tweaks Toolbar -->
+        <div class="box-quick-tweaks">
+          <div class="tweak-item">
+            <span>Box Color:</span>
+            <input type="color" id="boxColorPicker" value="#1e293b" style="width: 24px; height: 24px; border: none; background: none; cursor: pointer; border-radius: 4px;">
+          </div>
+          <div style="width: 1px; height: 16px; background: var(--border-color);"></div>
+          <div class="tweak-item">
+            <span>Radius:</span>
+            <input type="range" id="borderRadiusSlider" min="0" max="60" value="20">
+            <span id="borderRadiusVal" style="font-family: var(--font-mono); font-size: 0.75rem;">20px</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Column 3: Export Suite & Preset Showcase -->
+    <div class="right-column export-panel-column">
+      
+      <!-- Code Export Box -->
+      <section class="code-box-wrapper">
+        <div class="code-tabs-header">
+          <div class="code-tabs">
+            <button class="code-tab-btn active" data-tab="css">CSS</button>
+            <button class="code-tab-btn" data-tab="tailwind">Tailwind</button>
+            <button class="code-tab-btn" data-tab="vars">Variables</button>
+            <button class="code-tab-btn" data-tab="rules">Ruleset</button>
+          </div>
+          <button id="shareBtn" class="btn btn-sm btn-ghost" title="Copy shareable URL link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+              <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+            </svg>
+            <span>Share</span>
+          </button>
+        </div>
+
+        <div class="code-body">
+          <pre id="codeSnippet" class="code-snippet"></pre>
+        </div>
+
+        <div class="code-actions">
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Press <kbd style="background: var(--bg-tertiary); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color);">Ctrl+C</kbd> to copy</span>
+          <button id="copyCodeBtn" class="btn btn-sm btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+            </svg>
+            <span>Copy Code</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Presets Showcase Panel -->
+      <section class="presets-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="7" height="7" x="3" y="3" rx="1"/>
+              <rect width="7" height="7" x="14" y="3" rx="1"/>
+              <rect width="7" height="7" x="14" y="14" rx="1"/>
+              <rect width="7" height="7" x="3" y="14" rx="1"/>
+            </svg>
+            <span>Shadow Presets</span>
+          </div>
+        </div>
+
+        <!-- Filter category tags -->
+        <div class="presets-filter-bar">
+          <button class="preset-chip active" data-category="all">All</button>
+          <button class="preset-chip" data-category="minimal">Minimal</button>
+          <button class="preset-chip" data-category="material">Material 3</button>
+          <button class="preset-chip" data-category="glow">Glow</button>
+          <button class="preset-chip" data-category="neumorphism">Neumorphic</button>
+          <button class="preset-chip" data-category="retro">Retro</button>
+          <button class="preset-chip" data-category="physics">Physics</button>
+        </div>
+
+        <!-- Dynamically rendered preset cards -->
+        <div id="presetsGrid" class="presets-grid"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <p>
+      Developed with ❤️ by <a href="https://github.com/Royal-Technologies" target="_blank" rel="noopener noreferrer">Royal Technologies</a>.
+      Released under the <a href="LICENSE">MIT License</a>. Open source on <a href="https://github.com/Royal-Technologies/CSS-Box-Shadow" target="_blank" rel="noopener noreferrer">GitHub</a>.
+    </p>
+  </footer>
+
+  <!-- Main JavaScript App -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
