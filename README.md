@@ -134,7 +134,7 @@ git push -u origin main
 
 ## 🗺️ Roadmap & Future Additions
 
-This project is the foundation for an upcoming suite of modern developer tools by **Royal Technologies**:
+This project is the foundation for an upcoming suite of modern developer tools by <a href="https://www.royaltechbd.com/" target="_blank" rel="noopener noreferrer"><b>Royal Technologies</b></a>:
 
 - [x] Multi-layer CSS Box Shadow Generator
 - [x] 2D Light Controller & Tailwind arbitrary exporter
@@ -166,5 +166,5 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more informa
 ---
 
 <p align="center">
-  Crafted with ❤️ by <a href="https://github.com/Royal-Technologies"><b>Royal Technologies</b></a>
+  Crafted with ❤️ by <a href="https://www.royaltechbd.com/" target="_blank" rel="noopener noreferrer"><b>Royal Technologies</b></a>
 </p>
