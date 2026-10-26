@@ -210,35 +210,40 @@
               </div>
             </div>
 
-            <!-- Color Picker & Hex -->
-            <div class="control-group">
-              <label class="control-label">Shadow Color</label>
-              <div class="color-picker-row">
-                <div class="color-input-wrapper">
-                  <input type="color" id="colorPicker" class="color-picker-input" value="#000000">
-                </div>
-                <input type="text" id="colorHex" class="hex-input" value="#000000" maxlength="7">
-              </div>
-            </div>
-
-            <!-- Opacity Slider -->
-            <div class="control-group">
+            <!-- Dynamic Multi-Layer Shadow Colors & Opacities Section (Displays ALL Layer Colors) -->
+            <div class="control-group multi-layer-colors-card" id="multiLayerColorsCard" style="grid-column: 1 / -1;">
               <div class="control-label-row">
-                <label class="control-label" for="opacitySlider">Opacity (Alpha %)</label>
+                <label class="control-label" style="font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" style="display:none;"/>
+                  </svg>
+                  <span>Shadow Colors (<span id="shadowColorsCountBadge">1 Layer</span>)</span>
+                </label>
+                <div class="color-actions-group">
+                  <button type="button" id="applyColorToAllBtn" class="apply-all-color-btn" title="Apply selected layer color to all layers">
+                    Sync color to all
+                  </button>
+                </div>
               </div>
-              <div class="control-input-wrapper">
-                <input type="range" id="opacitySlider" class="range-slider" min="0" max="100" value="12">
-                <input type="number" id="opacityNum" class="num-input" min="0" max="100" value="12">
-              </div>
+
+              <!-- Dynamic list displaying every shadow layer's color picker, hex, and opacity -->
+              <div id="allLayerColorsList" class="all-layer-colors-list"></div>
+
+              <!-- Hidden Fallback Bindings for Legacy JS References -->
+              <input type="color" id="colorPicker" style="display: none;" value="#000000">
+              <input type="text" id="colorHex" style="display: none;" value="#000000">
+              <input type="range" id="opacitySlider" style="display: none;" min="0" max="100" value="12">
+              <input type="number" id="opacityNum" style="display: none;" min="0" max="100" value="12">
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- 3. Shadow Presets Panel (সব প্রিসেট একসাথে দেখাবে, কোন স্ক্রলবার ছাড়া) -->
+      <!-- 3. Shadow Presets Panel (105+ Presets with Live Search) -->
       <section class="presets-panel full-showcase">
-        <div class="panel-header">
+        <div class="panel-header" style="flex-wrap: wrap; gap: 12px;">
           <div class="panel-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect width="7" height="7" x="3" y="3" rx="1"/>
@@ -246,22 +251,33 @@
               <rect width="7" height="7" x="14" y="14" rx="1"/>
               <rect width="7" height="7" x="3" y="14" rx="1"/>
             </svg>
-            <span>Shadow Presets (All 26 Presets)</span>
+            <span>Shadow Presets (<span id="presetCountIndicator">105</span>)</span>
+          </div>
+
+          <!-- Live Search Bar -->
+          <div class="preset-search-wrapper">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="presetSearchInput" placeholder="Search 105+ presets (e.g. Stripe, Glow, Inset, Apple)..." autocomplete="off">
+            <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" style="display: none;">&times;</button>
           </div>
         </div>
 
         <!-- Filter category tags -->
         <div class="presets-filter-bar">
-          <button class="preset-chip active" data-category="all">All (26)</button>
-          <button class="preset-chip" data-category="minimal">Minimal</button>
+          <button class="preset-chip active" data-category="all">All (105)</button>
+          <button class="preset-chip" data-category="minimal">Minimal & SaaS</button>
           <button class="preset-chip" data-category="material">Material 3</button>
-          <button class="preset-chip" data-category="glow">Glow</button>
+          <button class="preset-chip" data-category="glow">Glow & Neon</button>
           <button class="preset-chip" data-category="neumorphism">Neumorphic</button>
-          <button class="preset-chip" data-category="retro">Retro</button>
-          <button class="preset-chip" data-category="physics">Physics</button>
+          <button class="preset-chip" data-category="retro">Retro & Pop</button>
+          <button class="preset-chip" data-category="physics">Physics & Smooth</button>
+          <button class="preset-chip" data-category="inset">Inset & Depth</button>
         </div>
 
-        <!-- Dynamically rendered preset cards: All 26 presets visible together -->
+        <!-- Dynamically rendered preset cards: All 105 presets visible together -->
         <div id="presetsGrid" class="presets-grid showcase-grid"></div>
       </section>
 
@@ -378,6 +394,8 @@
     </p>
   </footer>
 
+  <!-- Presets Library (105+ Curated Shadows) -->
+  <script src="assets/js/presets.js"></script>
   <!-- Main JavaScript App -->
   <script src="assets/js/app.js"></script>
 </body>

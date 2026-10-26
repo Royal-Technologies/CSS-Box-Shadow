@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License: MIT" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-indigo.svg?style=for-the-badge" alt="Version 1.0.0" />
+  <img src="https://img.shields.io/badge/Presets-105%2B_Library-6366f1.svg?style=for-the-badge" alt="105+ Presets" />
   <img src="https://img.shields.io/badge/Pure-Vanilla_JS-yellow.svg?style=for-the-badge" alt="Pure Vanilla JS" />
   <img src="https://img.shields.io/badge/Tailwind-Supported-06B6D4.svg?style=for-the-badge" alt="Tailwind CSS Supported" />
   <img src="https://img.shields.io/badge/GitHub_Pages-Ready-2ea44f.svg?style=for-the-badge" alt="GitHub Pages Ready" />
@@ -34,18 +34,21 @@ Traditional shadow generators only offer single-layer drop shadows and basic sli
 
 ---
 
-## 🎨 Curated Preset Library
+## 🎨 Curated 105+ Preset Library with Live Search
 
-BoxShadow Studio includes 26+ handcrafted modern presets with high-contrast preview stages:
+BoxShadow Studio includes **105+ handcrafted, production-ready modern presets** equipped with a real-time live search filter:
 
-| Category | Presets Included |
-| :--- | :--- |
-| **Minimal & Clean** | *Subtle Card, Modern SaaS Elevation, Apple Float, Ultra Soft Cloud, Clean Card Hover, Deep Ambient Occlusion* |
-| **Material 3** | *Material Elevation 1, Elevation 3, Floating Dialog, Material 3 Modal* |
-| **Glow & Neon** | *Cyberpunk Cyan Glow, Purple Velvet Dream, Sunset Radiance, Emerald Matrix Glow, Magenta Cyber Aura, Solar Flare Gold* |
-| **Neumorphism** | *Neumorphic Soft Dual, Neumorphic Inset Pressed, Neumorphic Floating Pill, Neumorphic Carved Well* |
-| **Retro & Brutalist** | *Brutalist 90s Pop, Retro Multi-Step 3D, Comic Double Offset, 80s Synthwave Dual* |
-| **Natural Physics** | *Natural 5-Layer Diffusion, Josh Comeau 6-Layer Exponential Curve* |
+| Category | Presets Count | Highlights |
+| :--- | :---: | :--- |
+| **Minimal & SaaS** | 25 | *Subtle Card, Modern SaaS Elevation, Stripe Classic, Apple Floating Glass, Tailwind Card, Linear App Shadow, Supabase Float, Vercel Clean, GitHub Card, etc.* |
+| **Material Design 3** | 20 | *Material Elevation 1 through 5, Navigation Rail, FAB Elevated, Focus Modal, Extended FAB, Search Bar, Dialog Scrim, etc.* |
+| **Vibrant Glow & Neon** | 20 | *Cyberpunk Cyan Pulse, Electric Violet, Emerald Matrix, Sunset Dual, Amber Radiant, Ruby Laser, Synthwave Neon, Laser Mint, etc.* |
+| **Neumorphism & Soft UI** | 15 | *Soft Convex, Inset Pressed, Dual Source Emboss, Carved Well, Dark Soft Concave, Outer Glow Cushion, etc.* |
+| **Retro, Pop & Brutalism** | 15 | *Brutalist 90s Pop, Multi-Step 3D, Comic Double Offset, 80s Synthwave, Y2K Bubblegum, Neon Hard Edge, etc.* |
+| **Physics & Diffusion** | 5 | *Natural 5-Layer Diffusion, Josh Comeau 6-Layer Exponential, Gaussian Inverse Square, Air Cushion 4-Step, etc.* |
+| **Inset & Depth** | 5 | *Inset Bottom Bevel, Carved Slot Well, Deep Inner Chasm, Inset Top Lip Bevel, Dual Inset & Outset Carve* |
+
+🔍 **Live Search Filter**: Type any keyword (e.g. `Stripe`, `Neon`, `Apple`, `Inset`, `Material`) into the search bar or filter by category tags to instantly locate the ideal shadow.
 
 ---
 
@@ -56,9 +59,12 @@ CSS-Box-Shadow/
 ├── index.html              # Main application markup & SEO metadata
 ├── assets/
 │   ├── css/
-│   │   └── style.css       # Design system tokens, themes & layout
+│   │   └── style.css       # Design system tokens, Light/Dark themes & responsive 2-column layout
+│   ├── images/
+│   │   └── favicon.svg     # Custom layered depth SVG icon & favicon
 │   └── js/
-│       └── app.js          # Reactive state, joystick math & exporters
+│       ├── presets.js      # 105+ Curated Modern Presets library
+│       └── app.js          # Reactive state, light joystick, live search & exporters
 ├── .gitignore              # Git ignore rules
 ├── LICENSE                 # MIT Open Source License
 └── README.md               # Documentation & deployment guide

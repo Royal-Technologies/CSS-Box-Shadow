@@ -7,268 +7,8 @@
 (function () {
   'use strict';
 
-  // --- Initial Presets Collection (26 Handcrafted Modern Presets) ---
-  const PRESETS = [
-    // 1. Minimal & Clean (6 presets)
-    {
-      id: 'subtle-card',
-      name: 'Subtle Card',
-      category: 'minimal',
-      layers: [
-        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#000000', opacity: 0.12, active: true },
-        { inset: false, x: 0, y: 1, blur: 2, spread: -1, color: '#000000', opacity: 0.15, active: true }
-      ]
-    },
-    {
-      id: 'modern-saas',
-      name: 'Modern SaaS Elevation',
-      category: 'minimal',
-      layers: [
-        { inset: false, x: 0, y: 10, blur: 25, spread: -5, color: '#000000', opacity: 0.16, active: true },
-        { inset: false, x: 0, y: 8, blur: 10, spread: -6, color: '#000000', opacity: 0.12, active: true }
-      ]
-    },
-    {
-      id: 'apple-float',
-      name: 'Apple Float',
-      category: 'minimal',
-      layers: [
-        { inset: false, x: 0, y: 20, blur: 40, spread: -10, color: '#0f172a', opacity: 0.22, active: true },
-        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#0f172a', opacity: 0.1, active: true }
-      ]
-    },
-    {
-      id: 'cloud-feather',
-      name: 'Ultra Soft Cloud',
-      category: 'minimal',
-      layers: [
-        { inset: false, x: 0, y: 25, blur: 50, spread: -12, color: '#000000', opacity: 0.22, active: true },
-        { inset: false, x: 0, y: 4, blur: 12, spread: 0, color: '#000000', opacity: 0.08, active: true }
-      ]
-    },
-    {
-      id: 'saas-hover',
-      name: 'Clean Card Hover',
-      category: 'minimal',
-      layers: [
-        { inset: false, x: 0, y: 20, blur: 25, spread: -5, color: '#000000', opacity: 0.14, active: true },
-        { inset: false, x: 0, y: 8, blur: 10, spread: -6, color: '#000000', opacity: 0.12, active: true }
-      ]
-    },
-    {
-      id: 'ambient-deep',
-      name: 'Deep Ambient Occlusion',
-      category: 'minimal',
-      layers: [
-        { inset: false, x: 0, y: 30, blur: 60, spread: 0, color: '#000000', opacity: 0.25, active: true },
-        { inset: false, x: 0, y: 10, blur: 20, spread: 0, color: '#000000', opacity: 0.15, active: true }
-      ]
-    },
-
-    // 2. Material Design 3 (4 presets)
-    {
-      id: 'material-l1',
-      name: 'Material Elevation 1',
-      category: 'material',
-      layers: [
-        { inset: false, x: 0, y: 2, blur: 1, spread: -1, color: '#000000', opacity: 0.22, active: true },
-        { inset: false, x: 0, y: 1, blur: 1, spread: 0, color: '#000000', opacity: 0.16, active: true },
-        { inset: false, x: 0, y: 1, blur: 3, spread: 0, color: '#000000', opacity: 0.14, active: true }
-      ]
-    },
-    {
-      id: 'material-l3',
-      name: 'Material Elevation 3',
-      category: 'material',
-      layers: [
-        { inset: false, x: 0, y: 5, blur: 5, spread: -3, color: '#000000', opacity: 0.22, active: true },
-        { inset: false, x: 0, y: 8, blur: 10, spread: 1, color: '#000000', opacity: 0.16, active: true },
-        { inset: false, x: 0, y: 3, blur: 14, spread: 2, color: '#000000', opacity: 0.14, active: true }
-      ]
-    },
-    {
-      id: 'material-l5',
-      name: 'Material Floating Dialog',
-      category: 'material',
-      layers: [
-        { inset: false, x: 0, y: 11, blur: 15, spread: -7, color: '#000000', opacity: 0.28, active: true },
-        { inset: false, x: 0, y: 24, blur: 38, spread: 3, color: '#000000', opacity: 0.2, active: true },
-        { inset: false, x: 0, y: 9, blur: 46, spread: 8, color: '#000000', opacity: 0.16, active: true }
-      ]
-    },
-    {
-      id: 'material-modal',
-      name: 'Material 3 Modal',
-      category: 'material',
-      layers: [
-        { inset: false, x: 0, y: 12, blur: 17, spread: 2, color: '#000000', opacity: 0.18, active: true },
-        { inset: false, x: 0, y: 5, blur: 22, spread: 4, color: '#000000', opacity: 0.14, active: true },
-        { inset: false, x: 0, y: 7, blur: 8, spread: -4, color: '#000000', opacity: 0.22, active: true }
-      ]
-    },
-
-    // 3. Neon & Glow (6 presets)
-    {
-      id: 'neon-cyan',
-      name: 'Cyberpunk Cyan Glow',
-      category: 'glow',
-      layers: [
-        { inset: false, x: 0, y: 0, blur: 15, spread: 2, color: '#06b6d4', opacity: 0.7, active: true },
-        { inset: false, x: 0, y: 0, blur: 35, spread: 8, color: '#0891b2', opacity: 0.45, active: true },
-        { inset: false, x: 0, y: 0, blur: 70, spread: 15, color: '#0e7490', opacity: 0.3, active: true }
-      ]
-    },
-    {
-      id: 'neon-violet',
-      name: 'Purple Velvet Dream',
-      category: 'glow',
-      layers: [
-        { inset: false, x: 0, y: 10, blur: 30, spread: -5, color: '#a855f7', opacity: 0.6, active: true },
-        { inset: false, x: 0, y: 0, blur: 15, spread: 3, color: '#c084fc', opacity: 0.5, active: true },
-        { inset: false, x: 0, y: 25, blur: 60, spread: 5, color: '#7e22ce', opacity: 0.35, active: true }
-      ]
-    },
-    {
-      id: 'sunset-bloom',
-      name: 'Sunset Radiance',
-      category: 'glow',
-      layers: [
-        { inset: false, x: 0, y: 12, blur: 24, spread: -4, color: '#f97316', opacity: 0.55, active: true },
-        { inset: false, x: 0, y: 24, blur: 48, spread: 2, color: '#ef4444', opacity: 0.38, active: true }
-      ]
-    },
-    {
-      id: 'emerald-matrix',
-      name: 'Emerald Matrix Glow',
-      category: 'glow',
-      layers: [
-        { inset: false, x: 0, y: 0, blur: 20, spread: 3, color: '#10b981', opacity: 0.7, active: true },
-        { inset: false, x: 0, y: 0, blur: 45, spread: 8, color: '#059669', opacity: 0.45, active: true }
-      ]
-    },
-    {
-      id: 'cyber-pink',
-      name: 'Magenta Cyber Aura',
-      category: 'glow',
-      layers: [
-        { inset: false, x: 0, y: 0, blur: 20, spread: 2, color: '#ec4899', opacity: 0.75, active: true },
-        { inset: false, x: 0, y: 10, blur: 40, spread: 6, color: '#be185d', opacity: 0.5, active: true }
-      ]
-    },
-    {
-      id: 'golden-sun',
-      name: 'Solar Flare Gold',
-      category: 'glow',
-      layers: [
-        { inset: false, x: 0, y: 0, blur: 25, spread: 4, color: '#f59e0b', opacity: 0.75, active: true },
-        { inset: false, x: 0, y: 8, blur: 45, spread: 8, color: '#d97706', opacity: 0.45, active: true }
-      ]
-    },
-
-    // 4. Neumorphism (4 presets)
-    {
-      id: 'neumorphic-soft',
-      name: 'Neumorphic Soft Dual',
-      category: 'neumorphism',
-      layers: [
-        { inset: false, x: 8, y: 8, blur: 16, spread: 0, color: '#000000', opacity: 0.35, active: true },
-        { inset: false, x: -8, y: -8, blur: 16, spread: 0, color: '#ffffff', opacity: 0.85, active: true }
-      ]
-    },
-    {
-      id: 'neumorphic-pressed',
-      name: 'Neumorphic Inset Pressed',
-      category: 'neumorphism',
-      layers: [
-        { inset: true, x: 6, y: 6, blur: 12, spread: 0, color: '#000000', opacity: 0.4, active: true },
-        { inset: true, x: -6, y: -6, blur: 12, spread: 0, color: '#ffffff', opacity: 0.85, active: true }
-      ]
-    },
-    {
-      id: 'neumorphic-convex',
-      name: 'Neumorphic Floating Pill',
-      category: 'neumorphism',
-      layers: [
-        { inset: false, x: 10, y: 10, blur: 20, spread: 0, color: '#000000', opacity: 0.38, active: true },
-        { inset: false, x: -10, y: -10, blur: 20, spread: 0, color: '#ffffff', opacity: 0.9, active: true }
-      ]
-    },
-    {
-      id: 'neumorphic-concave',
-      name: 'Neumorphic Carved Well',
-      category: 'neumorphism',
-      layers: [
-        { inset: true, x: 8, y: 8, blur: 14, spread: 0, color: '#000000', opacity: 0.45, active: true },
-        { inset: true, x: -8, y: -8, blur: 14, spread: 0, color: '#ffffff', opacity: 0.9, active: true }
-      ]
-    },
-
-    // 5. Retro & Brutalism (4 presets)
-    {
-      id: 'brutalist-solid',
-      name: 'Brutalist 90s Pop',
-      category: 'retro',
-      layers: [
-        { inset: false, x: 8, y: 8, blur: 0, spread: 0, color: '#000000', opacity: 1, active: true }
-      ]
-    },
-    {
-      id: 'retro-stacked',
-      name: 'Retro Multi-Step 3D',
-      category: 'retro',
-      layers: [
-        { inset: false, x: 4, y: 4, blur: 0, spread: 0, color: '#6366f1', opacity: 1, active: true },
-        { inset: false, x: 8, y: 8, blur: 0, spread: 0, color: '#ec4899', opacity: 1, active: true },
-        { inset: false, x: 12, y: 12, blur: 0, spread: 0, color: '#eab308', opacity: 1, active: true }
-      ]
-    },
-    {
-      id: 'comic-edge',
-      name: 'Comic Double Offset',
-      category: 'retro',
-      layers: [
-        { inset: false, x: 5, y: 5, blur: 0, spread: 0, color: '#000000', opacity: 1, active: true },
-        { inset: false, x: 10, y: 10, blur: 0, spread: 0, color: '#3b82f6', opacity: 1, active: true }
-      ]
-    },
-    {
-      id: 'synthwave-80s',
-      name: '80s Synthwave Dual',
-      category: 'retro',
-      layers: [
-        { inset: false, x: 6, y: 6, blur: 0, spread: 0, color: '#ec4899', opacity: 1, active: true },
-        { inset: false, x: 12, y: 12, blur: 0, spread: 0, color: '#06b6d4', opacity: 1, active: true }
-      ]
-    },
-
-    // 6. Natural Physics Curves (2 presets)
-    {
-      id: 'physics-smooth',
-      name: 'Natural 5-Layer Diffusion',
-      category: 'physics',
-      layers: [
-        { inset: false, x: 0, y: 1, blur: 2, spread: 0, color: '#000000', opacity: 0.08, active: true },
-        { inset: false, x: 0, y: 2, blur: 4, spread: 0, color: '#000000', opacity: 0.08, active: true },
-        { inset: false, x: 0, y: 4, blur: 8, spread: 0, color: '#000000', opacity: 0.08, active: true },
-        { inset: false, x: 0, y: 8, blur: 16, spread: 0, color: '#000000', opacity: 0.08, active: true },
-        { inset: false, x: 0, y: 16, blur: 32, spread: 0, color: '#000000', opacity: 0.08, active: true }
-      ]
-    },
-    {
-      id: 'smooth-exponential',
-      name: 'Josh Comeau 6-Layer Curve',
-      category: 'physics',
-      layers: [
-        { inset: false, x: 0, y: 1, blur: 1, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 2, blur: 2, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 4, blur: 4, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 8, blur: 8, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 16, blur: 16, spread: 0, color: '#000000', opacity: 0.07, active: true },
-        { inset: false, x: 0, y: 28, blur: 28, spread: 0, color: '#000000', opacity: 0.07, active: true }
-      ]
-    }
-  ];
-
+  // --- Presets Collection (105+ Curated Shadows from assets/js/presets.js) ---
+  const PRESETS = (typeof window !== 'undefined' && Array.isArray(window.PRESETS)) ? window.PRESETS : [];
   // --- Application State ---
   const state = {
     layers: [
@@ -284,7 +24,8 @@
     boxWidth: 220,
     boxHeight: 110,
     tiltEnabled: true,
-    filterCategory: 'all'
+    filterCategory: 'all',
+    searchQuery: ''
   };
 
   let nextLayerId = 3;
@@ -338,6 +79,14 @@
     // Presets
     presetsGrid: document.getElementById('presetsGrid'),
     presetChips: document.querySelectorAll('.preset-chip'),
+    presetSearchInput: document.getElementById('presetSearchInput'),
+    clearSearchBtn: document.getElementById('clearSearchBtn'),
+    presetCountIndicator: document.getElementById('presetCountIndicator'),
+
+    // Multi-Layer Colors
+    allLayerColorsList: document.getElementById('allLayerColorsList'),
+    shadowColorsCountBadge: document.getElementById('shadowColorsCountBadge'),
+    applyColorToAllBtn: document.getElementById('applyColorToAllBtn'),
 
     // Toast
     toastContainer: document.getElementById('toastContainer')
@@ -375,9 +124,15 @@
       item.className = `layer-item ${isSelected ? 'active' : ''} ${!layer.active ? 'disabled' : ''}`;
       item.innerHTML = `
         <div class="layer-info" data-layer-id="${layer.id}">
-          <div class="layer-preview-dot" style="background-color: ${rgba};"></div>
+          <label class="layer-color-picker-badge" title="Change color for Layer #${state.layers.length - index}">
+            <input type="color" class="layer-inline-color-input" data-color-id="${layer.id}" value="${layer.color}">
+            <div class="layer-preview-dot" style="background-color: ${rgba};"></div>
+          </label>
           <div class="layer-labels">
-            <span class="layer-name">Layer #${state.layers.length - index} ${layer.inset ? '(Inset)' : ''}</span>
+            <div class="layer-name-row">
+              <span class="layer-name">Layer #${state.layers.length - index} ${layer.inset ? '(Inset)' : ''}</span>
+              <span class="layer-color-badge" style="color: ${layer.color};">${layer.color.toUpperCase()}</span>
+            </div>
             <span class="layer-summary">${summary}</span>
           </div>
         </div>
@@ -404,13 +159,124 @@
         </div>
       `;
 
-      item.querySelector('.layer-info').addEventListener('click', () => {
+      item.querySelector('.layer-info').addEventListener('click', (e) => {
+        if (e.target.tagName === 'INPUT') return;
         state.selectedLayerId = layer.id;
         syncInputsWithSelectedLayer();
         renderLayersList();
+        renderAllLayerColors();
       });
 
+      const inlineColor = item.querySelector('.layer-inline-color-input');
+      if (inlineColor) {
+        inlineColor.addEventListener('input', (e) => {
+          e.stopPropagation();
+          const val = e.target.value;
+          layer.color = val;
+          if (layer.id === state.selectedLayerId) {
+            els.colorPicker.value = val;
+            els.colorHex.value = val.toUpperCase();
+          }
+          updatePreview();
+          renderLayersList();
+          renderAllLayerColors();
+        });
+      }
+
       els.layersList.appendChild(item);
+    });
+  }
+
+  // --- Render All Layer Colors in Settings Panel (Full Multi-Color Controls) ---
+  function renderAllLayerColors() {
+    if (!els.allLayerColorsList) return;
+    els.allLayerColorsList.innerHTML = '';
+    
+    if (els.shadowColorsCountBadge) {
+      els.shadowColorsCountBadge.textContent = `${state.layers.length} ${state.layers.length === 1 ? 'Layer' : 'Layers'}`;
+    }
+
+    state.layers.forEach((layer, index) => {
+      const isSelected = layer.id === state.selectedLayerId;
+      const layerNumber = state.layers.length - index;
+      const opacityPct = Math.round(layer.opacity * 100);
+
+      const row = document.createElement('div');
+      row.className = `layer-color-row ${isSelected ? 'active-layer-color' : ''}`;
+      row.dataset.layerId = layer.id;
+      row.innerHTML = `
+        <div class="layer-color-meta">
+          <span class="layer-pill ${isSelected ? 'pill-active' : ''}">Layer #${layerNumber}</span>
+          ${layer.inset ? '<span class="layer-inset-badge">Inset</span>' : ''}
+        </div>
+        <div class="layer-color-pickers">
+          <div class="color-input-wrapper" title="Click to pick color for Layer #${layerNumber}">
+            <input type="color" class="color-picker-input layer-multi-color-input" data-layer-id="${layer.id}" value="${layer.color}">
+          </div>
+          <input type="text" class="hex-input layer-multi-hex-input" data-layer-id="${layer.id}" value="${layer.color.toUpperCase()}" maxlength="7" title="Hex code for Layer #${layerNumber}">
+        </div>
+        <div class="layer-color-opacity-group">
+          <input type="range" class="range-slider layer-multi-opacity-slider" data-layer-id="${layer.id}" min="0" max="100" value="${opacityPct}" title="Opacity for Layer #${layerNumber}">
+          <span class="layer-opacity-badge">${opacityPct}%</span>
+        </div>
+      `;
+
+      // Clicking row (outside inputs) selects this layer
+      row.addEventListener('click', (e) => {
+        if (e.target.tagName === 'INPUT') return;
+        state.selectedLayerId = layer.id;
+        syncInputsWithSelectedLayer();
+        renderLayersList();
+        renderAllLayerColors();
+      });
+
+      // Color picker input listener
+      const colorInput = row.querySelector('.layer-multi-color-input');
+      const hexInput = row.querySelector('.layer-multi-hex-input');
+      colorInput.addEventListener('input', (e) => {
+        const hex = e.target.value;
+        layer.color = hex;
+        hexInput.value = hex.toUpperCase();
+        if (layer.id === state.selectedLayerId) {
+          els.colorPicker.value = hex;
+          els.colorHex.value = hex.toUpperCase();
+        }
+        updatePreview();
+        renderLayersList();
+      });
+
+      // Hex input listener
+      hexInput.addEventListener('input', (e) => {
+        let hex = e.target.value;
+        if (!hex.startsWith('#')) hex = '#' + hex;
+        if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+          layer.color = hex;
+          colorInput.value = hex;
+          if (layer.id === state.selectedLayerId) {
+            els.colorPicker.value = hex;
+            els.colorHex.value = hex.toUpperCase();
+          }
+          updatePreview();
+          renderLayersList();
+        }
+      });
+
+      // Opacity slider listener
+      const opacitySlider = row.querySelector('.layer-multi-opacity-slider');
+      const opacityBadge = row.querySelector('.layer-opacity-badge');
+      opacitySlider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10) || 0;
+        layer.opacity = val / 100;
+        opacityBadge.textContent = `${val}%`;
+        if (layer.id === state.selectedLayerId) {
+          els.opacitySlider.value = val;
+          els.opacityNum.value = val;
+        }
+        updatePreview();
+        renderLayersList();
+      });
+
+      els.allLayerColorsList.appendChild(row);
     });
   }
 
@@ -443,6 +309,7 @@
     els.opacityNum.value = Math.round(layer.opacity * 100);
 
     updateJoystickPosition(layer.x, layer.y);
+    renderAllLayerColors();
   }
 
   // --- Compute CSS String ---
@@ -711,6 +578,22 @@
     }
     els.opacitySlider.addEventListener('input', (e) => setOpacity(e.target.value));
     els.opacityNum.addEventListener('input', (e) => setOpacity(e.target.value));
+
+    // Apply color to all layers button
+    if (els.applyColorToAllBtn) {
+      els.applyColorToAllBtn.addEventListener('click', () => {
+        const selectedLayer = getSelectedLayer();
+        if (!selectedLayer) return;
+        const col = selectedLayer.color;
+        state.layers.forEach(l => {
+          l.color = col;
+        });
+        updatePreview();
+        renderLayersList();
+        renderAllLayerColors();
+        showToast(`Applied ${col.toUpperCase()} to all ${state.layers.length} layers! ✨`, 'success');
+      });
+    }
   }
 
   // --- Layer Actions Delegation (Move, Delete, Duplicate, Toggle) ---
@@ -728,6 +611,7 @@
         state.layers[index].active = !state.layers[index].active;
         updatePreview();
         renderLayersList();
+        renderAllLayerColors();
         break;
 
       case 'duplicate':
@@ -738,6 +622,7 @@
         syncInputsWithSelectedLayer();
         updatePreview();
         renderLayersList();
+        renderAllLayerColors();
         showToast('Layer duplicated successfully');
         break;
 
@@ -753,6 +638,7 @@
         syncInputsWithSelectedLayer();
         updatePreview();
         renderLayersList();
+        renderAllLayerColors();
         showToast('Layer deleted');
         break;
 
@@ -763,6 +649,7 @@
           state.layers[index - 1] = temp;
           updatePreview();
           renderLayersList();
+          renderAllLayerColors();
         }
         break;
 
@@ -773,6 +660,7 @@
           state.layers[index + 1] = temp;
           updatePreview();
           renderLayersList();
+          renderAllLayerColors();
         }
         break;
     }
@@ -796,6 +684,7 @@
     syncInputsWithSelectedLayer();
     updatePreview();
     renderLayersList();
+    renderAllLayerColors();
     showToast('New layer added');
   });
 
@@ -841,12 +730,65 @@
     copyToClipboard(getRawCode(), 'Code copied to clipboard! ✨');
   });
 
-  // --- Presets Rendering & Applying ---
+  // --- Presets Rendering & Applying with Live Search ---
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function renderPresets() {
     els.presetsGrid.innerHTML = '';
-    const filtered = state.filterCategory === 'all' 
-      ? PRESETS 
-      : PRESETS.filter(p => p.category === state.filterCategory);
+    const allPresets = (typeof window !== 'undefined' && Array.isArray(window.PRESETS)) ? window.PRESETS : PRESETS;
+    const query = (state.searchQuery || '').trim().toLowerCase();
+
+    const filtered = allPresets.filter(preset => {
+      // 1. Category filter
+      const matchCategory = (state.filterCategory === 'all') || (preset.category === state.filterCategory);
+      if (!matchCategory) return false;
+
+      // 2. Query filter (matches name, category, or id)
+      if (!query) return true;
+      return preset.name.toLowerCase().includes(query) ||
+             preset.category.toLowerCase().includes(query) ||
+             preset.id.toLowerCase().includes(query);
+    });
+
+    // Update count indicator in panel header
+    if (els.presetCountIndicator) {
+      els.presetCountIndicator.textContent = filtered.length;
+    }
+
+    // Empty state when search or filter returns no results
+    if (filtered.length === 0) {
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'presets-empty-state';
+      emptyDiv.innerHTML = `
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <p>No presets found matching "<strong>${escapeHtml(state.searchQuery)}</strong>"</p>
+        <button id="resetPresetSearchBtn" style="margin-top: 6px; padding: 6px 16px; font-size: 0.8rem; cursor: pointer; border-radius: 9999px; background: var(--accent-primary); color: #ffffff; border: none; font-weight: 500;">Reset Search &amp; Filter</button>
+      `;
+      els.presetsGrid.appendChild(emptyDiv);
+
+      const resetBtn = document.getElementById('resetPresetSearchBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          state.searchQuery = '';
+          state.filterCategory = 'all';
+          if (els.presetSearchInput) els.presetSearchInput.value = '';
+          if (els.clearSearchBtn) els.clearSearchBtn.style.display = 'none';
+          els.presetChips.forEach(c => c.classList.toggle('active', c.dataset.category === 'all'));
+          renderPresets();
+        });
+      }
+      return;
+    }
 
     filtered.forEach(preset => {
       // Determine optimal contrast stage background & mini-box appearance
@@ -936,6 +878,30 @@
       renderPresets();
     });
   });
+
+  // Preset search input listener
+  if (els.presetSearchInput) {
+    els.presetSearchInput.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value;
+      if (els.clearSearchBtn) {
+        els.clearSearchBtn.style.display = state.searchQuery ? 'inline-flex' : 'none';
+      }
+      renderPresets();
+    });
+  }
+
+  // Clear search button listener
+  if (els.clearSearchBtn) {
+    els.clearSearchBtn.addEventListener('click', () => {
+      state.searchQuery = '';
+      if (els.presetSearchInput) {
+        els.presetSearchInput.value = '';
+        els.presetSearchInput.focus();
+      }
+      els.clearSearchBtn.style.display = 'none';
+      renderPresets();
+    });
+  }
 
   // --- Target Box & Canvas Viewport Customizations ---
   // Canvas Background
